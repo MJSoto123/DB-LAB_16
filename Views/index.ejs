@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Daily Bugle</title>
+  <link href="/style.css" rel="stylesheet" type="text/css">
+  <style>
+    #parallax-world-of-ugg .parallax-0 {
+      padding-top: 200px;
+      padding-bottom: 200px;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+          rgba(0, 0, 0, 0.5)), url(https://i.ytimg.com/vi/22pAl1fD-uE/maxresdefault.jpg);
+      background-attachment: fixed;
+      background-size: cover;
+      -moz-background-size: cover;
+      -webkit-background-size: cover;
+      background-repeat: no-repeat;
+      background-position: top center;
+    }
+
+    #parallax-world-of-ugg .parallax-1 {
+      padding-top: 200px;
+      padding-bottom: 200px;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      background-image: url(https://images.unsplash.com/photo-1432163230927-a32e4fd5a326?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=);
+      background-attachment: fixed;
+      background-size: cover;
+      -moz-background-size: cover;
+      -webkit-background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    #parallax-world-of-ugg .parallax-2 {
+      padding-top: 200px;
+      padding-bottom: 200px;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      background-image: url(https://images.unsplash.com/photo-1440688807730-73e4e2169fb8?dpr=1&auto=format&fit=crop&w=1500&h=1001&q=80&cs=tinysrgb&crop=);
+      background-attachment: fixed;
+      background-size: cover;
+      -moz-background-size: cover;
+      -webkit-background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <div id="parallax-world-of-ugg">
+
+    <section>
+      <div class="title">
+        <h3>Las últimas noticias con</h3>
+        <h1>DAILY BUGLE</h1>
+      </div>
+    </section>
+
+    <%for( var k=0; k < data.length; k++) {
+      var still = `parallax-${k}`%>
+      <section>
+        <div class= <%=still%> >
+          <h2>
+            <%=data[k].title%>
+          </h2>
+        </div>
+      </section>
+
+      <section>
+        <div class="block">
+          <!-- asjfkansfkas -->
+            <h1>  <%=data[k].author.name%></h1>
+          <p>
+            <%=data[k].text%>
+          </p>
+          <a href= <%=data[k].URL%> > <%=data[k].URL%> </a>
+          <p class="line-break margin-top-10"></p>
+          <p class="margin-top-10">
+            Tags: <%=data[k].tag%>  ||
+              Categorias:
+              <%for( var j=0; j < data[k].categories.length-1; j++){%>
+                <%=data[0].categories[j].name%>,
+                  <%}%>
+                    <%=data[k].categories[data[k].categories.length-1].name%> ||
+                      Fecha:
+                      <%=data[k].date%>
+          </p>
+          <p class="line-break margin-top-10"></p>
+          <div class="margin-top-10">
+            <div class="p1">
+              Comentarios:
+            </div>
+            <%for( var j=0; j < data[k].comments.length; j++){%>
+              <div class="p2">
+                <%=data[k].comments[j].name%>: <br />
+              </div>
+              <div class="p3">
+                <%=data[k].comments[j].text%>.
+              </div>
+              <div class="p4">
+                <%=data[k].comments[j].date%>
+              </div>
+              <%}%>
+          </div>
+        </div>
+      </section>
+      <%}%>
+
+  </div>
+  <!-- partial -->
+
+</body>
+
+</html>
